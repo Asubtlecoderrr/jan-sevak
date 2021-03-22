@@ -1,7 +1,8 @@
-from flask import Flask, request, jsonify, render_template, session, redirect, flash
+from flask import Flask, request, jsonify, render_template, session, redirect, flash, url_for
 from flask_mysqldb import MySQL
 from os import urandom
 from yaml import load, FullLoader
+from werkzeug.security import generate_password_hash as gen, check_password_hash as check
 
 app = Flask(__name__)
 mysql = MySQL(app)
@@ -18,9 +19,16 @@ app.config['SECRET_KEY'] = urandom(24)
 def index():
     return 'This is the beginning of a revolution'
 
-@app.route('/register/')
+@app.route('/register/', methods=['GET', 'POST'])
 def register():
+    if request.method == 'POST':
+        pass
+    return render_template('register.html')
+
+@app.route('/register/continue', methods=['GET', 'POST'])
+def continue_reg():
     pass
+
 
 @app.route('/login/')
 def login():
