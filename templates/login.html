@@ -7,11 +7,11 @@
 </body>
 <script>
     function afterSignUp(googleUser) {
-        console.log("User Details from Google Signin", googleUser.Hs);
+        console.log("User Details from Google Signin", googleUser);
         img = document.getElementById('img');
         names = document.getElementById('full-name');
-        img.src = googleUser.Hs.jI;
-        names.textContent = googleUser.Hs.sd;
+        img.src = googleUser.Qs.EI;
+        names.textContent = googleUser.Qs.Te;
     }
 </script>
 {% endblock %}

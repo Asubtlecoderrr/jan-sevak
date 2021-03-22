@@ -18,11 +18,17 @@
 <meta name="author" content="Yuvraj Dagur">
 <meta name="keywords" content="ML, Machine Learning, IPL, Indian Premier League, IPL Score, IPL Prediction, Random Forest, Decision Tree, Neural Networks, Regression">
 <meta name="description" content="Machine Learning Webapp to predict First Innings Score of IPL 2020 using Regression.">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> {% endblock %} {% block content %}
-<!-- Include Navbar -->
-<!-- Flash Messages -->
-{% with messages = get_flashed_messages(with_categories=true) %}
-<ul class="list-group">
-    {% for category, message in messages %}
-    <li class="alert alert-{{category}}"> {{ message }} </li>
-    {% endfor %} {% endwith %} {% block subcontent %} {% endblock %} {% endblock %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> {% endblock %} 
+
+{% block content %}
+    <!-- Include Navbar -->
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    <ul class="list-group">
+        {% for category, message in messages %}
+        <li class="alert alert-{{category}}"> {{ message }} </li>
+        {% endfor %} 
+    {% endwith %} 
+    {% block subcontent %} 
+    {% endblock %} 
+{% endblock %}
