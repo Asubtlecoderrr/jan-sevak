@@ -1,0 +1,17 @@
+{% include 'block.html' %} {% block subcontent %}
+
+<body>
+    <div class="g-signin2" data-onsuccess="afterSignUp" data-longtitle="true"></div>
+    <h2 id="full-name"></h2>
+    <img src="" alt="" id="img" height="100px" width="100px">
+</body>
+<script>
+    function afterSignUp(googleUser) {
+        console.log("User Details from Google Signin", googleUser.Hs);
+        img = document.getElementById('img');
+        names = document.getElementById('full-name');
+        img.src = googleUser.Hs.jI;
+        names.textContent = googleUser.Hs.sd;
+    }
+</script>
+{% endblock %}
