@@ -1,0 +1,50 @@
+{% include 'block.html' %} {% block subcontent %}
+<style>
+    body {
+        background-image: linear-gradient(to right, red, yellow);
+    }
+    
+    .card {
+        box-shadow: 0 10px 35px #1c1c1c;
+        top: 20vh;
+        border-radius: 10px;
+    }
+</style>
+
+<body>
+    <div class="card w-50 m-auto">
+        <div class="card-header">
+            <h1 class="text-center text-dark">Register Now</h1>
+        </div>
+        <div class="card-body form-group">
+            <div class="g-signin2" data-onsuccess="afterSignUp"></div>
+            <form action="/register/" method="POST">
+                <input type="text" class="form-control" name="fullname" id="fullname" placeholder="Enter Full Name">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email">
+                <input type="number" class="form-control" name="number" id="number" placeholder="Enter Phone Number">
+                <input type="password" class="form-control" name="password" id="password" placeholder="Enter Password">
+                <input type="text" class="form-control" name="image" id="image">
+            </form>
+        </div>
+        <div class="card-footer">
+            Footer
+        </div>
+    </div>
+</body>
+<script>
+    function afterSignUp(googleUser) {
+        console.log("User Details from Google Signin", googleUser);
+        img = document.getElementById('img');
+        names = document.getElementById('fullname');
+        password = document.getElementById('password');
+        email = document.getElementById('email');
+        // img.src = googleUser.Qs.EI;
+        names.value = googleUser.Qs.Te;
+        password.value = googleUser.Qs.ER;
+        email.value = googleUser.Qs.zt;
+        password.disabled = true;
+        names.disabled = true;
+        email.disabled = true;
+    }
+</script>
+{% endblock %}
