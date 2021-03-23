@@ -1,198 +1,78 @@
-{% include 'block.html' %} 
-<style>
-	*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-html {
-  background-color: #f0f0f0;
-}
-body {
-  color: #999999;
-  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: 0;
-  padding: 1rem;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -moz-font-feature-settings: "liga" on;
-}
-img {
-  height: auto;
-  max-width: 100%;
-  vertical-align: middle;
-}
-.btn {
-  background-color: white;
-  border: 1px solid #cccccc;
-  color: #696969;
-  padding: 0.5rem;
-  text-transform: lowercase;
-}
-.btn--block {
-  display: block;
-  width: 100%;
-}
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.cards__item {
-  display: flex;
-  padding: 1rem;
-}
-@media (min-width: 40rem) {
-  .cards__item {
-    width: 50%;
-  }
-}
-@media (min-width: 56rem) {
-  .cards__item {
-    width: 33.3333%;
-  }
-}
-.card {
-  background-color: white;
-  border-radius: 0.25rem;
-  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-.card:hover .card__image {
-  filter: contrast(100%);
-}
-.card__content {
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  padding: 1rem;
-}
-.card__image {
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-size: contain;
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
-  filter: contrast(70%);
-  overflow: hidden;
-  position: relative;
-  transition: filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
-}
-.card__image::before {
-  content: "";
-  display: block;
-  padding-top: 56.25%;
-}
-@media (min-width: 40rem) {
-  .card__image::before {
-    padding-top: 66.6%;
-  }
-}
-.card__image--farmer {
-  background-image: url("{{url_for('static', filename='farming.jpg')}}");
-}
-.card__image--bank {
-  background-image: url("{{url_for('static', filename='bank.png')}}");
-}
-.card__image--health {
-  background-image: url("{{url_for('static', filename='hospital.png')}}");
-}
-.card__image--govt {
-  background-image: url("{{url_for('static', filename='gov.png')}}");
-}
-.card__image--munci {
-  background-image: url("{{url_for('static', filename='munci.png')}}");
-}
-.card__image--misc {
-  background-image: url("{{url_for('static', filename='misc.png')}}");
-}
-.card__title {
-  color: #696969;
-  font-size: 1.25rem;
-  font-weight: 300;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-.card__text {
-  flex: 1 1 auto;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  margin-bottom: 1.25rem;
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"  crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"  crossorigin="anonymous">
+        <style>
+            article {margin-bottom:2em;padding-bottom:2em;border-bottom:1px solid #ccc;}
+
+.social a {
+  padding: 0 .5em;
 }
 
-</style>
+.page-header {
+  margin-bottom:2rem;
+}
+.text{
+    margin-left: 150px
+}
+@media screen and (max-width: 728px) {
+    .row{
+        margin: auto;
+    }
+}
+        </style>
+    </head>
+    <body>
+    
+        <div class="container">
+            <center>
+  <div class="page-header">
+    <h1>Blogs <small>/लेख</small></h1>
+  </div>
+            </center>
+  <div class="row text" >
 
-<ul class="cards">
-	<li class="cards__item">
-	  <div class="card"><a href="#">
-		<div class="card__image card__image--farmer"></div>
-		<div class="card__content">
-		  <div class="card__title">Farming</div>
-		  <p class="card__text text-align-center">खेती</p>
-		  <h5>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis magni hic ex totam ullam, qui dolorem eum nam autem labore nostrum, numquam porro, modi accusantium voluptatum. Mollitia ullam praesentium ad.</h5>
-		  
-		</div></a>
-	  </div>
-	</li>
-	<li class="cards__item">
-	  <div class="card"><a href="#">
-		<div class="card__image card__image--bank"></div>
-		<div class="card__content">
-		  <div class="card__title">Bank & Finance</div>
-		  <p class="card__text">बैंक और वित्त</p>
-		  <h5>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, eos iusto, odio maiores quo delectus error dolor ducimus qui explicabo impedit ut asperiores nostrum! Quod saepe placeat nihil tempore architecto?</h5>
-		  
-		</div></a>
-	  </div>
-	</li>
-	<li class="cards__item">
-		<div class="card"><a href="#">
-		  <div class="card__image card__image--health"></div>
-		  <div class="card__content">
-			<div class="card__title">Health & Medicinal</div>
-			<p class="card__text">सरकारी योजनाएं</p>
-			<h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur suscipit illo eum ducimus fuga inventore fugit temporibus, cum neque deserunt iste sint quas? Molestias odit facere quo ullam blanditiis unde.</h5>
-			
-		  </div></a>
-		</div>
-	  </li>
-	<li class="cards__item">
-	  <div class="card"><a href="#">
-		<div class="card__image card__image--govt"></div>
-		<div class="card__content">
-		  <div class="card__title">Government Schemes</div>
-		  <p class="card__text">सरकारी योजनाएं</p>
-		  <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur suscipit illo eum ducimus fuga inventore fugit temporibus, cum neque deserunt iste sint quas? Molestias odit facere quo ullam blanditiis unde.</h5>
-		  
-		</div></a>
-	  </div>
-	</li>
-	<li class="cards__item">
-		<div class="card"><a href="#">
-		  <div class="card__image card__image--munci"></div>
-		  <div class="card__content">
-			<div class="card__title">Municpality</div>
-			<p class="card__text"></p>
-			<h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur suscipit illo eum ducimus fuga inventore fugit temporibus, cum neque deserunt iste sint quas? Molestias odit facere quo ullam blanditiis unde.</h5>
-			
-		  </div></a>
-		</div>
-	  </li>
-	<li class="cards__item">
-		<div class="card"><a href="#">
-		  <div class="card__image card__image--misc"></div>
-		  <div class="card__content">
-			<div class="card__title">Miscellaneous</div>
-			<p class="card__text">अन्य</p>
-			<h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, beatae laudantium porro repellendus magnam tempore dolorum, quis tenetur eveniet cumque autem at consequatur nesciunt delectus exercitationem vel est, maiores asperiores!</h5>
-		  </div></a>
-		</div>
-	  </li>
-  </ul>
+    <div class="col-md-8">
+      <article id="">
+        <header>
+          <div class="meta">
+
+            Written by <span class="author">Author Name</span> <span class="date">1/30/16</span> 
+          </div>
+          <h2>
+            <a href="">
+            Blog title</a></h2>
+        </header>
+        <div class="entry-content">
+         
+          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis aliquid fuga dolorum est ab fugit, eveniet quam minus reiciendis harum accusamus a velit, vero impedit, dolor. Sapiente architecto &hellip;</p>
+
+          <a href="#" class="btn btn-primary">Read More <span class="glyphicon glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+        </div>
+        <footer>
+        </footer>
+      </article>
+      
+  
+</div>
+      
+      
+      
+    
+  </div>
+</div>
+    
+    </body>
+</html>
