@@ -1,0 +1,198 @@
+{% include 'block.html' %} 
+<style>
+	*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  background-color: #f0f0f0;
+}
+body {
+  color: #999999;
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 1rem;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: "liga" on;
+}
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+.btn {
+  background-color: white;
+  border: 1px solid #cccccc;
+  color: #696969;
+  padding: 0.5rem;
+  text-transform: lowercase;
+}
+.btn--block {
+  display: block;
+  width: 100%;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cards__item {
+  display: flex;
+  padding: 1rem;
+}
+@media (min-width: 40rem) {
+  .cards__item {
+    width: 50%;
+  }
+}
+@media (min-width: 56rem) {
+  .cards__item {
+    width: 33.3333%;
+  }
+}
+.card {
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.card:hover .card__image {
+  filter: contrast(100%);
+}
+.card__content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: 1rem;
+}
+.card__image {
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  filter: contrast(70%);
+  overflow: hidden;
+  position: relative;
+  transition: filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
+}
+.card__image::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%;
+}
+@media (min-width: 40rem) {
+  .card__image::before {
+    padding-top: 66.6%;
+  }
+}
+.card__image--farmer {
+  background-image: url("{{url_for('static', filename='images/farming.jpg')}}");
+}
+.card__image--bank {
+  background-image: url("{{url_for('static', filename='images/bank.png')}}");
+}
+.card__image--health {
+  background-image: url("{{url_for('static', filename='images/hospital.png')}}");
+}
+.card__image--govt {
+  background-image: url("{{url_for('static', filename='images/gov.png')}}");
+}
+.card__image--munci {
+  background-image: url("{{url_for('static', filename='images/munci.png')}}");
+}
+.card__image--misc {
+  background-image: url("{{url_for('static', filename='images/misc.png')}}");
+}
+.card__title {
+  color: #696969;
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.card__text {
+  flex: 1 1 auto;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+</style>
+
+<ul class="cards">
+	<li class="cards__item">
+	  <div class="card"><a href="#">
+		<div class="card__image card__image--farmer"></div>
+		<div class="card__content">
+		  <div class="card__title">Farming</div>
+		  <p class="card__text text-align-center">खेती</p>
+		  <h5>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis magni hic ex totam ullam, qui dolorem eum nam autem labore nostrum, numquam porro, modi accusantium voluptatum. Mollitia ullam praesentium ad.</h5>
+		  
+		</div></a>
+	  </div>
+	</li>
+	<li class="cards__item">
+	  <div class="card"><a href="#">
+		<div class="card__image card__image--bank"></div>
+		<div class="card__content">
+		  <div class="card__title">Bank & Finance</div>
+		  <p class="card__text">बैंक और वित्त</p>
+		  <h5>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, eos iusto, odio maiores quo delectus error dolor ducimus qui explicabo impedit ut asperiores nostrum! Quod saepe placeat nihil tempore architecto?</h5>
+		  
+		</div></a>
+	  </div>
+	</li>
+	<li class="cards__item">
+		<div class="card"><a href="#">
+		  <div class="card__image card__image--health"></div>
+		  <div class="card__content">
+			<div class="card__title">Health & Medicinal</div>
+			<p class="card__text">सरकारी योजनाएं</p>
+			<h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur suscipit illo eum ducimus fuga inventore fugit temporibus, cum neque deserunt iste sint quas? Molestias odit facere quo ullam blanditiis unde.</h5>
+			
+		  </div></a>
+		</div>
+	  </li>
+	<li class="cards__item">
+	  <div class="card"><a href="#">
+		<div class="card__image card__image--govt"></div>
+		<div class="card__content">
+		  <div class="card__title">Government Schemes</div>
+		  <p class="card__text">सरकारी योजनाएं</p>
+		  <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur suscipit illo eum ducimus fuga inventore fugit temporibus, cum neque deserunt iste sint quas? Molestias odit facere quo ullam blanditiis unde.</h5>
+		  
+		</div></a>
+	  </div>
+	</li>
+	<li class="cards__item">
+		<div class="card"><a href="#">
+		  <div class="card__image card__image--munci"></div>
+		  <div class="card__content">
+			<div class="card__title">Municpality</div>
+			<p class="card__text"></p>
+			<h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur suscipit illo eum ducimus fuga inventore fugit temporibus, cum neque deserunt iste sint quas? Molestias odit facere quo ullam blanditiis unde.</h5>
+			
+		  </div></a>
+		</div>
+	  </li>
+	<li class="cards__item">
+		<div class="card"><a href="#">
+		  <div class="card__image card__image--misc"></div>
+		  <div class="card__content">
+			<div class="card__title">Miscellaneous</div>
+			<p class="card__text">अन्य</p>
+			<h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, beatae laudantium porro repellendus magnam tempore dolorum, quis tenetur eveniet cumque autem at consequatur nesciunt delectus exercitationem vel est, maiores asperiores!</h5>
+		  </div></a>
+		</div>
+	  </li>
+  </ul>
