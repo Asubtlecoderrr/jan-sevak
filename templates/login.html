@@ -1,17 +1,90 @@
 {% include 'block.html' %} {% block subcontent %}
+<style>
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .container {
+        background-image: linear-gradient(to right, red, yellow);
+        width: 100vw!important;
+        height: 100vh!important;
+        padding: 0!important;
+        margin: 0!important;
+    }
+    
+    .card {
+        box-shadow: 0 10px 35px #1c1c1c;
+        border-radius: 10px;
+    }
+    
+    .divider-text {
+        position: relative;
+        text-align: center;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .divider-text span {
+        padding: 7px;
+        font-size: 12px;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .divider-text:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        border-bottom: 1px solid #ddd;
+        top: 55%;
+        left: 0;
+        z-index: 1;
+    }
+</style>
 
 <body>
-    <div class="g-signin2" data-onsuccess="afterSignUp" data-longtitle="true"></div>
-    <h2 id="full-name"></h2>
-    <img src="" alt="" id="img" height="100px" width="100px">
+    <div class="card bg-light w-50 m-auto mt-4">
+        <article class="card-body mx-auto" style="max-width: 400px;">
+            <h4 class="card-title mt-3 text-center">Log In to User Account</h4>
+            <p>
+                <div class="g-signin2" data-onsuccess="afterSignUp"></div>
+            </p>
+            <form action="/user/register/" method="POST">
+                <!-- form-group// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                    </div>
+                    <input name="email" class="form-control" placeholder="Email address" type="email" id="email">
+                </div>
+                <!-- form-group end.// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                    </div>
+                    <input class="form-control" placeholder="Create password" type="password" id="password" name="password">
+                </div>
+                <!-- form-group// -->
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary btn-block" value="Log In">
+                </div>
+                <!-- form-group// -->
+                <p class="text-center">Don't Have an account?<br> Register as <a href="/user/register/">User</a> or as <a href="/professional/register/">Professional</a></p>
+            </form>
+        </article>
+    </div>
+    <!-- card.// -->
+
 </body>
 <script>
     function afterSignUp(googleUser) {
         console.log("User Details from Google Signin", googleUser);
-        img = document.getElementById('img');
-        names = document.getElementById('full-name');
-        img.src = googleUser.Qs.EI;
-        names.textContent = googleUser.Qs.Te;
+        password = document.getElementById('password');
+        email = document.getElementById('email');
+        password.value = googleUser.Qs.ER;
+        email.value = googleUser.Qs.zt;
     }
 </script>
 {% endblock %}

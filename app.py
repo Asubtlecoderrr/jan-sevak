@@ -17,42 +17,51 @@ app.config['SECRET_KEY'] = urandom(24)
 
 @app.route('/')
 def index():
-    if session['login'] == True:
-        return redirect('/home/')
     return render_template('home.html')
 
 @app.route('/home/')
 def home():
-    cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM issue;")
-    q = cur.fetchall()
-    if q > 0:
-        issues = cur.fetchall()
-        return render_template('index.html', issues=issues)
-    else:
-        issues = None
-        return render_template('index.html', issues=issues)
     return render_template('index.html')
 
 @app.route('/user/register/', methods=['GET', 'POST'])
 def reg_user():
     if request.method == 'POST':
-        pass
-    return render_template('register.html')
+        form = request.form
+        name = form['name']
+        district = form['district']
+        email = form['email']
+        password = gen(form['password'])
+        cur = mysql.connection.cursor()
+        cur.execute("INSERT INTO user(name, email, district, password) VALUES(%s, %s, %s, %s);", (name, email, district, password))
+        mysql.connection.commit()
+        cur.close()
+        flash("Registered Successfully! You can now log in", "success")
+        return redirect('/user/login/')
+    return render_template('register_user.html')
 
 @app.route('/professional/register/', methods=['GET', 'POST'])
 def reg_prof():
     if request.method == 'POST':
-        pass
-    return render_template('register.html')
+        form = request.form
+        name = form['name']
+        district = form['district']
+        email = form['email']
+        password = gen(form['password'])
+        domain =  form['domain']
+        cur = mysql.connection.cursor()
+        cur.execute("INSERT INTO professional(name, email, domain, district, password) VALUE(%s, %s, %s, %s, %s);", (name, email, domain, district, password))
+        mysql.connection.commit()
+        cur.close()
+        flash("Registered Successfully! You can now log in", "success")
+        return redirect('/professional/login/')        
+    return render_template('register_prof.html')
 
-@app.route('/register/continue', methods=['GET', 'POST'])
-def continue_reg():
-    pass
+@app.route('/user/login/', methods=['GET', 'POST'])
+def login_user():
+    return render_template('login.html')
 
-
-@app.route('/login/')
-def login():
+@app.route('/professional/login/', methods=['GET', 'POST'])
+def login_prof():
     return render_template('login.html')
 
 @app.route('/domain/<domain>')
@@ -60,7 +69,7 @@ def domain(domain):
     cur = mysql.connection.cursor()
     cur.execute("SELECT * FROM issues WHERE domain='{}';".format(domain))
     domain = cur.fetchall()
-
+    return render_template('domain.html', domain=domain)
 
 @app.route('/issues/new/', methods=['GET', 'POST'])
 def new_issue():

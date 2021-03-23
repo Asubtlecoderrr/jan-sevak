@@ -47,48 +47,65 @@
 <body>
     <div class="card bg-light w-50 m-auto mt-4">
         <article class="card-body mx-auto" style="max-width: 400px;">
-            <h4 class="card-title mt-3 text-center">Create Account</h4>
+            <h4 class="card-title mt-3 text-center">Create User Account</h4>
             <p class="text-center">Get started with your free account</p>
             <p>
                 <div class="g-signin2" data-onsuccess="afterSignUp"></div>
             </p>
-            <form>
+            <form action="/user/register/" method="POST">
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                     </div>
-                    <input name="" class="form-control" placeholder="Full name" type="text">
+                    <input name="name" class="form-control" placeholder="Full name" type="text" id="fullname">
                 </div>
                 <!-- form-group// -->
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                     </div>
-                    <input name="" class="form-control" placeholder="Email address" type="email">
-                </div>
-                <!-- form-group// -->
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
-                    </div>
-                    <select class="custom-select" style="max-width: 120px;">
-                <option selected="">+971</option>
-                <option value="1">+972</option>
-                <option value="2">+198</option>
-                <option value="3">+701</option>
-            </select>
-                    <input name="" class="form-control" placeholder="Phone number" type="text">
+                    <input name="email" class="form-control" placeholder="Email address" type="email" id="email">
                 </div>
                 <!-- form-group// -->
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-building"></i> </span>
                     </div>
-                    <select class="form-control">
-                <option selected=""> Select job type</option>
-                <option>Designer</option>
-                <option>Manager</option>
-                <option>Accaunting</option>
+                    <select class="form-control" name="district">
+                <option selected> Select District</option>
+                <option value='Ajmer'>Ajmer</option>
+                <option value='Alwar'>Alwar</option>
+                <option value='Banswara'>Banswara</option>
+                <option value='Baran'>Baran</option>
+                <option value='Barmer'>Barmer</option>
+                <option value='Bharatpur'>Bharatpur</option>
+                <option value='Bhilwara'>Bhilwara</option>
+                <option value='Bikaner'>Bikaner</option>
+                <option value='Bundi'>Bundi</option>
+                <option value='Chittorgarh'>Chittorgarh</option>
+                <option value='Churu'>Churu</option>
+                <option value='Dausa'>Dausa</option>
+                <option value='Dholpur'>Dholpur</option>
+                <option value='Dungarpur'>Dungarpur</option>
+                <option value='Hanumangarh'>Hanumangarh</option>
+                <option value='Jaipur'>Jaipur</option>
+                <option value='Jaisalmer'>Jaisalmer</option>
+                <option value='Jalore'>Jalore</option>
+                <option value='Jhalawar'>Jhalawar</option>
+                <option value='Jhunjhunu'>Jhunjhunu</option>
+                <option value='Jodhpur'>Jodhpur</option>
+                <option value='Karauli'>Karauli</option>
+                <option value='Kota'>Kota</option>
+                <option value='Nagaur'>Nagaur</option>
+                <option value='Pali'>Pali</option>
+                <option value='Pratapgarh'>Pratapgarh</option>
+                <option value='Rajsamand'>Rajsamand</option>
+                <option value='Sawai Madhopur'>Sawai madhopur</option>
+                <option value='Sikar'>Sikar</option>
+                <option value='Sirohi'>Sirohi</option>
+                <option value='Sri Ganganagar'>Sri ganganagar</option>
+                <option value='Tonk'>Tonk</option>
+                <option value='Udaipur'>Udaipur</option>
             </select>
                 </div>
                 <!-- form-group end.// -->
@@ -96,21 +113,14 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                     </div>
-                    <input class="form-control" placeholder="Create password" type="password">
-                </div>
-                <!-- form-group// -->
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-                    </div>
-                    <input class="form-control" placeholder="Repeat password" type="password">
+                    <input class="form-control" placeholder="Create password" type="password" id="password" name="password">
                 </div>
                 <!-- form-group// -->
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
+                    <input type="submit" class="btn btn-primary btn-block" value="Create Account">
                 </div>
                 <!-- form-group// -->
-                <p class="text-center">Have an account? <a href="">Log In</a> </p>
+                <p class="text-center">Have an account? <a href="/login/">Log In</a> </p>
             </form>
         </article>
     </div>
@@ -120,19 +130,13 @@
 <script>
     function afterSignUp(googleUser) {
         console.log("User Details from Google Signin", googleUser);
-        img = document.getElementById('img');
         names = document.getElementById('fullname');
         password = document.getElementById('password');
         email = document.getElementById('email');
         image = document.getElementById('image');
-        image.value = googleUser.Qs.EI;
         names.value = googleUser.Qs.Te;
         password.value = googleUser.Qs.ER;
         email.value = googleUser.Qs.zt;
-        password.disabled = true;
-        names.disabled = true;
-        email.disabled = true;
-        image.disabled = true;
     }
 </script>
 {% endblock %}

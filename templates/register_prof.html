@@ -1,0 +1,157 @@
+{% include 'block.html' %} {% block subcontent %}
+<style>
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .container {
+        background-image: linear-gradient(to right, red, yellow);
+        width: 100vw!important;
+        height: 100vh!important;
+        padding: 0!important;
+        margin: 0!important;
+    }
+    
+    .card {
+        box-shadow: 0 10px 35px #1c1c1c;
+        border-radius: 10px;
+    }
+    
+    .divider-text {
+        position: relative;
+        text-align: center;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .divider-text span {
+        padding: 7px;
+        font-size: 12px;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .divider-text:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        border-bottom: 1px solid #ddd;
+        top: 55%;
+        left: 0;
+        z-index: 1;
+    }
+</style>
+
+<body>
+    <div class="card bg-light w-50 m-auto mt-4">
+        <article class="card-body mx-auto" style="max-width: 400px;">
+            <h4 class="card-title mt-3 text-center">Create Professional Account</h4>
+            <p class="text-center">Get started with your free account</p>
+            <p>
+                <div class="g-signin2" data-onsuccess="afterSignUp"></div>
+            </p>
+            <form action="/user/register/" method="POST">
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                    </div>
+                    <input name="name" class="form-control" placeholder="Full name" type="text" id="fullname">
+                </div>
+                <!-- form-group// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                    </div>
+                    <input name="email" class="form-control" placeholder="Email address" type="email" id="email">
+                </div>
+                <!-- form-group// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+                    </div>
+                    <select class="form-control" name="district">
+                <option selected> Select District</option>
+                <option value='Ajmer'>Ajmer</option>
+                <option value='Alwar'>Alwar</option>
+                <option value='Banswara'>Banswara</option>
+                <option value='Baran'>Baran</option>
+                <option value='Barmer'>Barmer</option>
+                <option value='Bharatpur'>Bharatpur</option>
+                <option value='Bhilwara'>Bhilwara</option>
+                <option value='Bikaner'>Bikaner</option>
+                <option value='Bundi'>Bundi</option>
+                <option value='Chittorgarh'>Chittorgarh</option>
+                <option value='Churu'>Churu</option>
+                <option value='Dausa'>Dausa</option>
+                <option value='Dholpur'>Dholpur</option>
+                <option value='Dungarpur'>Dungarpur</option>
+                <option value='Hanumangarh'>Hanumangarh</option>
+                <option value='Jaipur'>Jaipur</option>
+                <option value='Jaisalmer'>Jaisalmer</option>
+                <option value='Jalore'>Jalore</option>
+                <option value='Jhalawar'>Jhalawar</option>
+                <option value='Jhunjhunu'>Jhunjhunu</option>
+                <option value='Jodhpur'>Jodhpur</option>
+                <option value='Karauli'>Karauli</option>
+                <option value='Kota'>Kota</option>
+                <option value='Nagaur'>Nagaur</option>
+                <option value='Pali'>Pali</option>
+                <option value='Pratapgarh'>Pratapgarh</option>
+                <option value='Rajsamand'>Rajsamand</option>
+                <option value='Sawai Madhopur'>Sawai madhopur</option>
+                <option value='Sikar'>Sikar</option>
+                <option value='Sirohi'>Sirohi</option>
+                <option value='Sri Ganganagar'>Sri ganganagar</option>
+                <option value='Tonk'>Tonk</option>
+                <option value='Udaipur'>Udaipur</option>
+            </select>
+                </div>
+                <!-- form-group// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-globe"></i> </span>
+                    </div>
+                    <select class="form-control" name="domain">
+                        <option selected> Select Domain</option>
+                        <option value='Farming'>Farming</option>
+                        <option value='Bank and Finance'>Bank and Finance</option>
+                        <option value='Health and Medicinal'>Health and Medicinal</option>
+                        <option value='Government Schemes'>Government Schemes</option>
+                        <option value='Municipality'>Municipality</option>
+                        <option value='Miscellaneous'>Miscellaneous</option>
+                    </select>
+                </div>
+                <!-- form-group end.// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                    </div>
+                    <input class="form-control" placeholder="Create password" type="password" id="password" name="password">
+                </div>
+                <!-- form-group// -->
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary btn-block" value="Create Account">
+                </div>
+                <!-- form-group// -->
+                <p class="text-center">Have an account? <a href="/login/">Log In</a> </p>
+            </form>
+        </article>
+    </div>
+    <!-- card.// -->
+
+</body>
+<script>
+    function afterSignUp(googleUser) {
+        console.log("User Details from Google Signin", googleUser);
+        names = document.getElementById('fullname');
+        password = document.getElementById('password');
+        email = document.getElementById('email');
+        image = document.getElementById('image');
+        names.value = googleUser.Qs.Te;
+        password.value = googleUser.Qs.ER;
+        email.value = googleUser.Qs.zt;
+    }
+</script>
+{% endblock %}
