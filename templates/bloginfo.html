@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"  crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"  crossorigin="anonymous">
+        <style>
+    .fa {
+        font-size: 40px;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .fa:hover {
+        color: darkblue;
+    }
+
+    .form-outer {
+        margin: 10px;
+        padding: 0 10px 10px 10px;
+    }
+
+    .panel {
+        width: 100%!important;
+    }
+</style>
+    </head>
+    <body>
+        
+        <div class="form-outer">
+        <h2 class="text-center text-capitalize">{{project[1]}}</h2>
+        <!--title-->
+
+        <h3>{{project[2]}}</h3>
+        <!--Description -->
+
+        <hr>
+        <!-- Date&Time-->
+        <div>
+            <i><h4 class="text-dark"> Owner: <a href="/profile/{{user[1]}}/">{{user[0]}}</a></h4> <!-- porject holder--></i>
+            <h4>Date: {{user[2]}}</h4>
+            <!-- Batch-->
+        </div>
+        
+
+        <hr> 
+
+       
+        </div>
+
+
+        
+
+    
+    </body>
+</html>
