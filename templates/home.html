@@ -1,163 +1,121 @@
-<!DOCTYPE html>
-
-<html>
-    <head>
-        <title>Why us</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"  crossorigin="anonymous">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
-        <style>
-
-@media screen and (max-width: 650px) {
-  .column {
-    width: 100%;
-    display: block;
-  }
-  .card:hover{
-     transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
-   background-color: #b0ccba;
-}
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-.column {
-  margin-top: 0px;
-  margin:40px;
-}
-
-.card:hover{
-     transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
-   background-color: #b0ccba;
-}
-
-
-.container {
-  padding: 0 16px;
-}
-.card{
-    align-content:  center;
-}
-.container::after, .row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-.title {
-  color: grey;
-}
-* {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: "Open Sans";
-  overflow-x: hidden;
-}
-
-.showcase {
-  width: 100%;
-  height: 500px;
-  position: relative;
-  color: white;
-  text-align: center;
-}
-
-.showcase img {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index:99
-}
-
-.showcase .overlay {
-  width: 100%;
-  height: 500px;
-  background-color: rgba(0, 35, 82, 0.4);
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index:999
-}
-
-.showcase h2 {
-  margin-top: 170px;
-  font-size: 3em;
-}
-
-.showcase p {
-  margin-top: 8px;
-  font-size: 1.2em;
-}
-
-
+{% extends 'block.html' %}
+<style type="text/css">
+    .header-text {
+        background-color: #8af777;
+        padding: 5px;
+        margin-top: 10px;
+        border-radius: 10px;
+    }
+    
+    h1 {
+        font-size: 60px;
+    }
+    
+    .offer img {
+        height: 300px;
+        width: 300px;
+        transition: transform 0.3s;
+        padding: 15px;
+    }
+    
+    .header .col-3 {
+        border: 3px solid;
+    }
+    
+    .offer img:hover {
+        transform: scale(1.1);
+    }
+    
+    .offer p {
+        text-align: justify;
+        margin: 20px;
+        font-size: 20px;
+    }
+    
+    .syllabus {
+        margin-top: 20px!important;
+        border-radius: 10px;
+        color: black;
+    }
+    
+    .card {
+        background-color: #1c1c1c;
+        color: white;
+        border-radius: 10px;
+    }
 </style>
-</head>
-<body>
-
-<section class="showcase">
-  <img src="img/p.jpg" alt="Picture">
-  <div class="overlay">
-    <h2 style="font-family: sans-serif;"> How Can We Help You?</h2>
-    
-  </div>
-</section>
+{% block subcontent %}
+<div class="text-center w-75 m-auto">
+    <div class="header">
+        <div class="header-text">
+            <h1>Welcome to <b>Cotes</b> | Courses and Notes</h1>
+        </div>
+    </div>
+</div>
+<div class="row mt-5">
+    <div class="header-img col-lg-6">
+        <img src="https://img.freepik.com/free-vector/group-college-university-students-hanging-out_74855-5251.jpg?size=626&ext=jpg">
+    </div>
+    <div class="col-6">
+        <h2 style="text-align: justify;margin-right: 20px">Unified Platform for All Students of All Years and All Branches. One Single Platform for all subject notes, verified by respective Subject Teachers. Students can request notes of specific topic, put up doubts and questions open for all students.
+            Open Platform for answering specific doubts by both students and teachers.</h2>
+    </div>
+</div>
+</div>
+<div class="offer m-auto text-center">
+    <h1 class="header-text w-50 m-auto">What We Offer</h1>
+    <div class="row">
+        <div class="col-3">
+            <img src="https://cdni.iconscout.com/illustration/premium/thumb/timetable-courses-1840462-1561572.png">
+            <h3>Weekly Timetable</h3>
+            <p>It will provide us links of daily going classes, from monday to saturday. Classes conduct on google meet. Student can easily find link of every respective class. Timetable will update weekly by class tutor.</p>
+        </div>
+        <div class="col-3">
+            <img src="https://img.freepik.com/free-vector/vector-illustration-little-people-fill-out-form-modern-concept_126608-443.jpg?size=338&ext=jpg">
+            <h3>Semester Wise Syllabus</h3>
+            <p>Syllabus will be shown according to students respective year (odd and even semester). Will be helpful for every year student. Will be easy to find syllabus according to their semester. Syllabus is verified by its respective subject teacher.</p>
+        </div>
+        <div class="col-3">
+            <img src="https://img.freepik.com/free-vector/image-upload-concept-illustration_114360-996.jpg?size=338&ext=jpg">
+            <h3>Request or Upload Notes</h3>
+            <p>Student can request notes which they need. Notes will be uploaded by teachers. Student can also upload notes but it will be verified by teachers. Every student of each semester can request for any notes related to any subject.</p>
+        </div>
+        <div class="col-3">
+            <img src="https://img.freepik.com/free-vector/illustration-avatar-social-network-concept_53876-28547.jpg?size=626&ext=jpg">
+            <h3>Public Forum (beta)</h3>
+            <p>It is platform for quieres, where student can have a chat on question answers. Student can put on questions of various topic. Teachers can answer there questions. Good platerform for communication of teacher-student in a healthy manner.</p>
+        </div>
+    </div>
+</div>
 <div class="row">
-  <div class="column">
-      <div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h1 class="card-title">Registered complaints</h1>
-   
-    <p class="card-text">Our portal helps rural people to file a complaint under the specified domain section.</p>
-    <p class="card-text">हमारा पोर्टल ग्रामीण लोगों को निर्दिष्ट डोमेन सेक्शन के तहत शिकायत दर्ज करने में मदद करता है।</p>
-   
-  </div>
+    <div class="card syllabus w-50 m-auto text-center col-3">
+        <div class="card-header">
+            <h3>Timetable for this week</h3>
+        </div>
+        <div class="card-body">
+            <a class="btn btn-primary" href="https://drive.google.com/file/d/1p9KcemvJ_Sz54WZPhId_ac2CgVKraWah/view?usp=sharing" target="_blank">Timetable for this week</a>
+        </div>
+    </div>
+
+    <div class="card syllabus w-50 m-auto text-center col-3">
+        <div class="card-header">
+            <h3>Timetable for Today</h3>
+        </div>
+        <div class="card-body">
+            <a class="btn btn-primary" href="https://drive.google.com/file/d/1p9KcemvJ_Sz54WZPhId_ac2CgVKraWah/view?usp=sharing" target="_blank">Timetable for Today</a>
+        </div>
+    </div>
+
+    <div class="card syllabus w-50 m-auto col-3">
+        <div class="card-header">
+            <h3 class="text-center">Important Dates</h3>
+        </div>
+        <div class="card-body">
+            <ul>
+                <li>29th November: Sit up challenge by Sports Club</li>
+                <li>30th November: Ground Zero by Literature Club</li>
+            </ul>
+        </div>
+    </div>
 </div>
-</div>
-    <div class="column">
-      <div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h1 class="card-title">Government Schemes</h1>
-   
-    <p class="card-text">We have created a track to provide the rural people with knowledge of Government Schemes.</p>
-    <p class="card-text">हमने ग्रामीण लोगों को सरकारी योजनाओं का ज्ञान प्रदान करने के लिए एक ट्रैक बनाया है।</p>
-  </div>
-</div>
-</div>
-    <div class="column">
-      <div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h1 class="card-title">Solved complaints</h1>
-   
-    <p class="card-text"> A different section for the complaints that have been solved under domain professionals.
-</p>
-<p class="card-text">डोमेन पेशेवरों के तहत हल की गई शिकायतों के लिए एक अलग अनुभाग।</p>
-   
-  </div>
-</div>
-</div>
-    <div class="column">
-      <div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h1 class="card-title">Get Help Directly</h1>
-   
-    <p class="card-text"> Get direct help from professionals undertaking the specified domains. 
-</p>
-<p class="card-text">निर्दिष्ट डोमेन का काम करने वाले पेशेवरों की मदद लें।</p>
-   
-  </div>
-</div>
-</div>
-</div>
-    
-    </body>
-</html>
+{% endblock %}
