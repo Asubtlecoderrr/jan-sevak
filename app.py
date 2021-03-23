@@ -58,11 +58,35 @@ def reg_prof():
 
 @app.route('/user/login/', methods=['GET', 'POST'])
 def login_user():
-    return render_template('login.html')
+    if request.method == 'POST':
+        form = request.form
+        email = form['email']
+        password = form['password']
+        cur = mysql.connection.cursor()
+        usercheck = cur.execute("SELECT * FROM user WHERE email=%s", ([email]))
+        if usercheck > 0:
+            user = cur.fetchone()
+            checker = check(user[-2], password)
+            if checker:
+                session['logged_in'] = True
+                session['full_name'] = user[1]
+                session['district'] = user[3]
+                flash(f"Welcome {session['full_name']}!! Your Login is Successful", 'success')
+            else:
+                cur.close()
+                flash('Wrong Password!! Please Check Again.', 'danger')
+                return render_template('login.html')
+        else:
+            cur.close()
+            flash('User Does Not Exist!! Please Enter Valid Username.', 'danger')
+            return render_template('login.html')
+        cur.close()
+        return redirect('/home/')
+    return render_template('login.html', role='user')
 
 @app.route('/professional/login/', methods=['GET', 'POST'])
 def login_prof():
-    return render_template('login.html')
+    return render_template('login.html', role='professional')
 
 @app.route('/domain/<domain>')
 def domain(domain):
