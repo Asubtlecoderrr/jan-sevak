@@ -1,35 +1,121 @@
 {% include 'block.html' %} {% block subcontent %}
 <style>
-    body {
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .container {
         background-image: linear-gradient(to right, red, yellow);
+        width: 100vw!important;
+        height: 100vh!important;
+        padding: 0!important;
+        margin: 0!important;
     }
     
     .card {
         box-shadow: 0 10px 35px #1c1c1c;
-        top: 20vh;
         border-radius: 10px;
+    }
+    
+    .divider-text {
+        position: relative;
+        text-align: center;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .divider-text span {
+        padding: 7px;
+        font-size: 12px;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .divider-text:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        border-bottom: 1px solid #ddd;
+        top: 55%;
+        left: 0;
+        z-index: 1;
     }
 </style>
 
 <body>
-    <div class="card w-50 m-auto">
-        <div class="card-header">
-            <h1 class="text-center text-dark">Register Now</h1>
-        </div>
-        <div class="card-body form-group">
-            <div class="g-signin2" data-onsuccess="afterSignUp"></div>
-            <form action="/register/" method="POST">
-                <input type="text" class="form-control" name="fullname" id="fullname" placeholder="Enter Full Name">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email">
-                <input type="number" class="form-control" name="number" id="number" placeholder="Enter Phone Number">
-                <input type="password" class="form-control" name="password" id="password" placeholder="Enter Password">
-                <input type="text" class="form-control" name="image" id="image">
+    <div class="card bg-light w-50 m-auto mt-4">
+        <article class="card-body mx-auto" style="max-width: 400px;">
+            <h4 class="card-title mt-3 text-center">Create Account</h4>
+            <p class="text-center">Get started with your free account</p>
+            <p>
+                <div class="g-signin2" data-onsuccess="afterSignUp"></div>
+            </p>
+            <form>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                    </div>
+                    <input name="" class="form-control" placeholder="Full name" type="text">
+                </div>
+                <!-- form-group// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                    </div>
+                    <input name="" class="form-control" placeholder="Email address" type="email">
+                </div>
+                <!-- form-group// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                    </div>
+                    <select class="custom-select" style="max-width: 120px;">
+                <option selected="">+971</option>
+                <option value="1">+972</option>
+                <option value="2">+198</option>
+                <option value="3">+701</option>
+            </select>
+                    <input name="" class="form-control" placeholder="Phone number" type="text">
+                </div>
+                <!-- form-group// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+                    </div>
+                    <select class="form-control">
+                <option selected=""> Select job type</option>
+                <option>Designer</option>
+                <option>Manager</option>
+                <option>Accaunting</option>
+            </select>
+                </div>
+                <!-- form-group end.// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                    </div>
+                    <input class="form-control" placeholder="Create password" type="password">
+                </div>
+                <!-- form-group// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                    </div>
+                    <input class="form-control" placeholder="Repeat password" type="password">
+                </div>
+                <!-- form-group// -->
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
+                </div>
+                <!-- form-group// -->
+                <p class="text-center">Have an account? <a href="">Log In</a> </p>
             </form>
-        </div>
-        <div class="card-footer">
-            Footer
-        </div>
+        </article>
     </div>
+    <!-- card.// -->
+
 </body>
 <script>
     function afterSignUp(googleUser) {
@@ -38,13 +124,15 @@
         names = document.getElementById('fullname');
         password = document.getElementById('password');
         email = document.getElementById('email');
-        // img.src = googleUser.Qs.EI;
+        image = document.getElementById('image');
+        image.value = googleUser.Qs.EI;
         names.value = googleUser.Qs.Te;
         password.value = googleUser.Qs.ER;
         email.value = googleUser.Qs.zt;
         password.disabled = true;
         names.disabled = true;
         email.disabled = true;
+        image.disabled = true;
     }
 </script>
 {% endblock %}
