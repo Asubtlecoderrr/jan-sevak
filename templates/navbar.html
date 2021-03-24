@@ -179,6 +179,7 @@
                 <a href="/" class="nav-item nav-link active"><i class="fa fa-home"></i><span>Home</span></a> {% endif %}
                 <a href="/blogs/" class="nav-item nav-link"><i class="fa fa-pencil-square-o"></i><span>Blogs</span></a>
                 <a href="/issues/new/" class="nav-item nav-link"><i class="fa fa-plus"></i><span>New</span></a> {% if session['logged_in'] == True %}
+		<a href="/issues/solved/" class="nav-item nav-link"><i class="fa fa-check"></i><span>Solved</span></a>
                 <div class="nav-item dropdown">
                     <a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action">{{session['full_name']}}<b class="caret"></b></a>
                     <div class="dropdown-menu">
