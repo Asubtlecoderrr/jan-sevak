@@ -133,6 +133,14 @@ def solved(id):
     flash("Issue Marked as Resolved", "success")
     return redirect('/home/')
 
+@app.route('/issues/solved')
+def solve():
+    cur = mysql.connection.cursor()
+    q = cur.execute("SELECT * FROM solved ORDER BY id DESC;")
+    if q > 0:
+        issues = cur.fetchall()
+        return render_template('issue.html', issues=issues, domain="SOLVED")
+
 @app.route('/blogs/')
 def blog():
     cur = mysql.connection.cursor()
@@ -153,8 +161,8 @@ def me():
     q = cur.execute("SELECT * FROM issue WHERE name='{}';".format(session['full_name']))
     if q > 0:
         my_issues = cur.fetchall()
-        return render_template('myissues.html', issues=my_issues)
-    return render_template('myissues.html', issues=None)
+        return render_template('myissue.html', issues=my_issues)
+    return render_template('myissue.html', issues=None)
 
 if __name__ == '__main__':
     app.run(debug=True)
