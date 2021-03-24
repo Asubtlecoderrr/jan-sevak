@@ -1,78 +1,56 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"  crossorigin="anonymous">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"  crossorigin="anonymous">
-        <style>
-            article {margin-bottom:2em;padding-bottom:2em;border-bottom:1px solid #ccc;}
-
-.social a {
-  padding: 0 .5em;
-}
-
-.page-header {
-  margin-bottom:2rem;
-}
-.text{
-    margin-left: 150px
-}
-@media screen and (max-width: 728px) {
-    .row{
-        margin: auto;
+{% include 'block.html' %} {% block subcontent %}
+<style>
+    article {
+        margin-bottom: 2em;
+        padding-bottom: 2em;
+        border-bottom: 1px solid #ccc;
     }
-}
-        </style>
-    </head>
-    <body>
     
-        <div class="container">
-            <center>
-  <div class="page-header">
-    <h1>Blogs <small>/लेख</small></h1>
-  </div>
-            </center>
-  <div class="row text" >
+    .social a {
+        padding: 0 .5em;
+    }
+    
+    .page-header {
+        margin-bottom: 2rem;
+    }
+    
+    .text {
+        margin-left: 150px
+    }
+    
+    @media screen and (max-width: 728px) {
+        .row {
+            margin: auto;
+        }
+    }
+</style>
 
-    <div class="col-md-8">
-      <article id="">
-        <header>
-          <div class="meta">
+<body>
 
-            Written by <span class="author">Author Name</span> <span class="date">1/30/16</span> 
-          </div>
-          <h2>
-            <a href="">
-            Blog title</a></h2>
-        </header>
-        <div class="entry-content">
-         
-          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis aliquid fuga dolorum est ab fugit, eveniet quam minus reiciendis harum accusamus a velit, vero impedit, dolor. Sapiente architecto &hellip;</p>
+    <div class="container">
+        <center>
+            <div class="page-header">
+                <h1>Blogs <small>/लेख</small></h1>
+            </div>
+        </center>
+        <div class="row text">
+            {% for blog in blogs %}
+            <div class="col-md-8">
+                <article id="">
+                    <header>
+                        <h2>
+                            <a href="/blogs/{{blog[0]}}/">
+            {{blog[-1]}}</a></h2>
+                    </header>
+                    <div class="entry-content">
 
-          <a href="#" class="btn btn-primary">Read More <span class="glyphicon glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+                        <p class="lead">{{blog[1]}}</p>
+                        <a href="/blogs/{{blog[0]}}/" class="btn btn-primary">Read More</a>
+                    </div>
+                </article>
+            </div>
+            {% endfor %}
         </div>
-        <footer>
-        </footer>
-      </article>
-      
-  
-</div>
-      
-      
-      
-    
-  </div>
-</div>
-    
-    </body>
-</html>
+    </div>
+</body>
+{% endblock %}
