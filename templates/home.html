@@ -43,14 +43,13 @@
         color: white;
         border-radius: 10px;
     }
+    
     .center {
         display: block;
         margin-left: auto;
         margin-right: auto;
         width: 50%;
     }
-    
-
 </style>
 {% block subcontent %}
 <div class="text-center w-75 m-auto">
@@ -62,7 +61,7 @@
 </div>
 <div class="row mt-5">
     <div class="header-img col-lg-6">
-        <img class="w-100" src="/static/farming12.jpg">
+        <img class="w-100" src="{{url_for('static', filename='farming12.jpg')}}">
     </div>
     <div class="col-6">
         <h2 style="text-align: justify;margin-right: 20px">Here, we are providing a platform which will let rural people to get their queries solved directly from domain professionals, track the number of queries solved under a ruling party, can read articles written by members & further different things.</h2>

@@ -117,7 +117,21 @@ def issue_id(id):
     cur = mysql.connection.cursor()
     cur.execute("SELECT * FROM issue WHERE id={}".format(id))
     issue = cur.fetchone()
-    return render_template('issue.html', issue=issue)
+    return render_template('issueinfo.html', issue=issue)
+
+@app.route('/issues/<int:id>/solved/')
+def solved(id):
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM issue WHERE id={};".format(id))
+    res = cur.fetchone()
+    cur.execute("DELETE FROM issue WHERE id={};".format(id))
+    mysql.connection.commit()
+    cur.execute("INSERT INTO solved(domain, complaint, link, name) VALUES(%s, %s, %s, %s);", (res[1], res[2], res[3], res[-1]))
+    mysql.connection.commit()
+    print(cur.fetchone())
+    cur.close()
+    flash("Issue Marked as Resolved", "success")
+    return redirect('/home/')
 
 @app.route('/blogs/')
 def blog():
@@ -131,6 +145,7 @@ def blog_id(id):
     cur = mysql.connection.cursor()
     cur.execute("SELECT * FROM issue WHERE id={}".format(id))
     issue = cur.fetchone()
+    return render_template('bloginfo.html')
 
 @app.route('/my-issues/')
 def me():
