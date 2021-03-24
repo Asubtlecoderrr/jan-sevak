@@ -1,66 +1,51 @@
-<!DOCTYPE html>
-
-<html>
-
-<head>
-    <title>TODO supply a title</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" crossorigin="anonymous">
-    <style>
-        .fa {
-            font-size: 40px;
-            cursor: pointer;
-            user-select: none;
-        }
-        
-        .fa:hover {
-            color: darkblue;
-        }
-        
-        .form-outer {
-            margin: 10px;
-            padding: 0 10px 10px 10px;
-        }
-        
-        .panel {
-            width: 100%!important;
-        }
-    </style>
+{% include 'block.html' %} {% block subcontent %}
+<style>
+    .fa {
+        font-size: 40px;
+        cursor: pointer;
+        user-select: none;
+    }
+    
+    .fa:hover {
+        color: darkblue;
+    }
+    
+    .form-outer {
+        margin: 10px;
+        padding: 0 10px 10px 10px;
+    }
+    
+    .panel {
+        width: 100%!important;
+    }
+</style>
 
 </head>
 
 <body>
 
     <div class="form-outer">
-        <h2 class="text-center text-capitalize">{{project[1]}}</h2>
+        <h2 class="text-center text-capitalize">{{issue[-1]}}</h2>
         <!--title-->
 
-        <h3>{{project[2]}}</h3>
+        <h3>{{issue[2]}}</h3>
         <!--Description -->
 
         <hr>
         <!-- Date&Time-->
         <div>
-            <i><h4 class="text-dark"> Owner: <a href="/profile/{{user[1]}}/">{{user[0]}}</a></h4> <!-- porject holder--></i>
-            <h4>Date: {{user[2]}}</h4>
+            <i><h4 class="text-dark"> Owner: {{issue[-2]}}</a></h4> <!-- porject holder--></i>
             <!-- Batch-->
         </div>
-
-
         <hr> {% if session['logged_in'] == True %}
 
-        <a class="btn btn-success btn-rounded btn-lg" href="/login/">Solved</a> {% endif %}
+        <a class="btn btn-success btn-rounded btn-lg" href="/issues/{{issue[0]}}/solved/">Mark as Solved</a> {% endif %}
 
 
 
 
         <!-- Comment box code start-->
-
+        <!-- 
 
         <div class="container">
             <div class="row">
@@ -69,7 +54,7 @@
                     <div class="panel-heading">
                         <span class="glyphicon glyphicon-comment"></span>
                         <h3 class="panel-title">
-                            Recent Comments</h3>
+                            Recent Suggestions</h3>
 
                     </div>
                     <div class="panel-body">
@@ -98,13 +83,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- Comment box code end-->
-
         </hr>
-
     </div>
-
 </body>
-
-</html>
+{% endblock %}

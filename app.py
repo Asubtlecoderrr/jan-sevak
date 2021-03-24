@@ -119,6 +119,12 @@ def issue_id(id):
     issue = cur.fetchone()
     return render_template('issueinfo.html', issue=issue)
 
+@app.route('/issues/<int:id>/comment/', methods=['POST'])
+def comment(id):
+    comment = request.form
+    issue_id = id
+    return "none"
+
 @app.route('/issues/<int:id>/solved/')
 def solved(id):
     cur = mysql.connection.cursor()
@@ -133,7 +139,7 @@ def solved(id):
     flash("Issue Marked as Resolved", "success")
     return redirect('/home/')
 
-@app.route('/issues/solved')
+@app.route('/issues/solved/')
 def solve():
     cur = mysql.connection.cursor()
     q = cur.execute("SELECT * FROM solved ORDER BY id DESC;")
