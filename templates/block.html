@@ -21,16 +21,23 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 {% endblock %} {% block meta %}
-<meta charset="utf-8"> {% endblock %} {% block content %}
-<!-- Include Navbar -->
-{% include 'navbar.html' %}
-<!-- Flash Messages -->
-{% with messages = get_flashed_messages(with_categories=true) %}
-<ul class="list-group">
-    {% for category, message in messages %}
-    <li class="alert alert-{{category}}">
-        {{ message }}
-    </li>
-    {% endfor %}
-</ul>
-{% endwith %} {% block subcontent %} {% endblock %} {% endblock %}
+    <meta charset="utf-8"> 
+{% endblock %} 
+
+{% block content %}
+    <!-- Include Navbar -->
+    {% include 'navbar.html' %}
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        <ul class="list-group">
+            {% for category, message in messages %}
+            <li class="alert alert-{{category}}">
+                {{ message }}
+            </li>
+            {% endfor %}
+        </ul>
+    {% endwith %} 
+    {% block subcontent %} 
+    {% endblock %} 
+    
+{% endblock %}
