@@ -170,5 +170,13 @@ def me():
         return render_template('myissue.html', issues=my_issues)
     return render_template('myissue.html', issues=None)
 
+@app.route('/dev-team/')
+def team():
+    return render_template('team.html')
+
+@app.errorhandler(404)
+def error(e):
+    return str(e)
+
 if __name__ == '__main__':
     app.run(debug=True)
